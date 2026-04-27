@@ -1,0 +1,1287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Know Your Rights — AI Legal Awareness Platform</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0f1b35;
+    --navy-mid: #1a2d52;
+    --navy-light: #243d6e;
+    --gold: #c9a84c;
+    --gold-light: #e8c97a;
+    --gold-pale: #fdf6e3;
+    --ivory: #faf8f3;
+    --cream: #f5f0e8;
+    --text-dark: #1a1a2e;
+    --text-mid: #3d4460;
+    --text-muted: #7a7f9a;
+    --white: #ffffff;
+    --red-alert: #dc2626;
+    --red-light: #fef2f2;
+    --blue-info: #1e40af;
+    --blue-light: #eff6ff;
+    --green-action: #15803d;
+    --green-light: #f0fdf4;
+    --amber-warn: #b45309;
+    --amber-light: #fffbeb;
+    --teal: #0f766e;
+    --teal-light: #f0fdfa;
+    --purple: #6d28d9;
+    --purple-light: #f5f3ff;
+    --border: rgba(15,27,53,0.12);
+    --shadow-sm: 0 2px 8px rgba(15,27,53,0.08);
+    --shadow-md: 0 4px 20px rgba(15,27,53,0.12);
+    --shadow-lg: 0 8px 40px rgba(15,27,53,0.16);
+    --radius: 12px;
+    --radius-lg: 18px;
+    --radius-xl: 24px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--ivory);
+    color: var(--text-dark);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* ─── LANDING ─── */
+  .landing {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: var(--navy);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .landing-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 50% at 20% 60%, rgba(201,168,76,0.08) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 40% at 80% 20%, rgba(255,255,255,0.03) 0%, transparent 50%);
+    pointer-events: none;
+  }
+
+  .landing-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(201,168,76,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(201,168,76,0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+    pointer-events: none;
+  }
+
+  .nav {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 40px;
+    border-bottom: 1px solid rgba(201,168,76,0.15);
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    color: var(--gold);
+    text-decoration: none;
+  }
+
+  .nav-logo-icon {
+    width: 32px;
+    height: 32px;
+    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+  }
+
+  .nav-badge {
+    font-size: 12px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.4);
+    padding: 4px 12px;
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 20px;
+    letter-spacing: 0.5px;
+  }
+
+  .hero {
+    position: relative;
+    z-index: 10;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 60px 40px 40px;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--gold);
+    background: rgba(201,168,76,0.1);
+    border: 1px solid rgba(201,168,76,0.25);
+    padding: 6px 16px;
+    border-radius: 20px;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    margin-bottom: 28px;
+    animation: fadeDown 0.6s ease;
+  }
+
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(42px, 8vw, 80px);
+    font-weight: 900;
+    color: var(--white);
+    line-height: 1.05;
+    margin-bottom: 20px;
+    animation: fadeDown 0.6s ease 0.1s both;
+  }
+
+  .hero-title span {
+    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-sub {
+    font-size: clamp(16px, 2.5vw, 20px);
+    color: rgba(255,255,255,0.55);
+    max-width: 520px;
+    line-height: 1.6;
+    margin-bottom: 44px;
+    font-weight: 300;
+    animation: fadeDown 0.6s ease 0.2s both;
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    justify-content: center;
+    animation: fadeDown 0.6s ease 0.3s both;
+  }
+
+  .btn-primary {
+    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+    color: var(--navy);
+    border: none;
+    padding: 14px 32px;
+    border-radius: 50px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    box-shadow: 0 4px 20px rgba(201,168,76,0.35);
+    animation: pulse-gold 2.5s infinite 1s;
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(201,168,76,0.45);
+  }
+
+  .btn-ghost {
+    background: transparent;
+    color: rgba(255,255,255,0.7);
+    border: 1px solid rgba(255,255,255,0.2);
+    padding: 14px 32px;
+    border-radius: 50px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .btn-ghost:hover {
+    border-color: rgba(255,255,255,0.4);
+    color: white;
+    background: rgba(255,255,255,0.05);
+  }
+
+  .hero-stats {
+    display: flex;
+    gap: 40px;
+    margin-top: 60px;
+    padding-top: 40px;
+    border-top: 1px solid rgba(201,168,76,0.15);
+    animation: fadeDown 0.6s ease 0.4s both;
+  }
+
+  .stat { text-align: center; }
+  .stat-num { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 700; color: var(--gold); }
+  .stat-label { font-size: 12px; color: rgba(255,255,255,0.4); text-transform: uppercase; letter-spacing: 0.8px; margin-top: 2px; }
+
+  /* ─── SITUATION CARDS ─── */
+  .situations-section {
+    position: relative;
+    z-index: 10;
+    padding: 0 40px 60px;
+  }
+
+  .situations-title {
+    text-align: center;
+    font-size: 13px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.3);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 20px;
+  }
+
+  .situation-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .situation-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(201,168,76,0.15);
+    border-radius: var(--radius);
+    padding: 18px 16px;
+    cursor: pointer;
+    transition: all 0.25s;
+    text-align: left;
+  }
+
+  .situation-card:hover {
+    background: rgba(201,168,76,0.08);
+    border-color: rgba(201,168,76,0.35);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(201,168,76,0.15);
+  }
+
+  .situation-card-icon { font-size: 22px; margin-bottom: 10px; display: block; }
+  .situation-card-title { font-size: 13px; font-weight: 600; color: var(--white); margin-bottom: 4px; }
+  .situation-card-desc { font-size: 11px; color: rgba(255,255,255,0.35); line-height: 1.4; }
+
+  /* ─── APP LAYOUT ─── */
+  .app { display: none; height: 100vh; background: var(--ivory); }
+  .app.active { display: flex; }
+
+  /* ─── SIDEBAR ─── */
+  .sidebar {
+    width: 260px;
+    min-width: 260px;
+    background: var(--navy);
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid rgba(201,168,76,0.15);
+    overflow: hidden;
+  }
+
+  .sidebar-header { padding: 20px; border-bottom: 1px solid rgba(201,168,76,0.12); }
+  .sidebar-logo { font-family: 'Playfair Display', serif; font-size: 17px; color: var(--gold); display: flex; align-items: center; gap: 8px; margin-bottom: 14px; }
+
+  .new-chat-btn {
+    width: 100%;
+    background: rgba(201,168,76,0.12);
+    border: 1px solid rgba(201,168,76,0.25);
+    color: var(--gold);
+    padding: 10px;
+    border-radius: var(--radius);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+  }
+
+  .new-chat-btn:hover { background: rgba(201,168,76,0.2); }
+
+  .sidebar-section {
+    padding: 16px 20px 8px;
+    font-size: 10px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.25);
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+  }
+
+  .sidebar-categories { padding: 0 12px; flex: 1; overflow-y: auto; }
+
+  .sidebar-cat {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-bottom: 2px;
+  }
+
+  .sidebar-cat:hover { background: rgba(255,255,255,0.05); }
+  .sidebar-cat-icon { width: 28px; height: 28px; border-radius: 7px; display: flex; align-items: center; justify-content: center; font-size: 14px; flex-shrink: 0; }
+  .sidebar-cat-text { font-size: 13px; color: rgba(255,255,255,0.65); font-weight: 400; }
+
+  .sidebar-footer { padding: 16px 20px; border-top: 1px solid rgba(255,255,255,0.06); }
+
+  .emergency-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(220,38,38,0.08);
+    border: 1px solid rgba(220,38,38,0.2);
+    border-radius: var(--radius);
+    padding: 12px 14px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .emergency-toggle.active { background: rgba(220,38,38,0.15); border-color: rgba(220,38,38,0.4); }
+  .emergency-label { display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 500; color: #f87171; }
+
+  .toggle-switch { width: 36px; height: 20px; background: rgba(220,38,38,0.3); border-radius: 10px; position: relative; transition: all 0.2s; }
+  .toggle-switch.on { background: var(--red-alert); }
+  .toggle-knob { position: absolute; top: 3px; left: 3px; width: 14px; height: 14px; background: white; border-radius: 50%; transition: all 0.2s; }
+  .toggle-switch.on .toggle-knob { left: 19px; }
+
+  /* ─── MAIN AREA ─── */
+  .main { flex: 1; display: flex; flex-direction: column; min-width: 0; }
+
+  .chat-header {
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    padding: 14px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .chat-title { font-size: 14px; font-weight: 600; color: var(--text-dark); }
+  .chat-subtitle { font-size: 12px; color: var(--text-muted); margin-top: 1px; }
+  .header-actions { display: flex; gap: 8px; }
+
+  .icon-btn {
+    background: none;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    width: 34px;
+    height: 34px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    transition: all 0.2s;
+    color: var(--text-muted);
+  }
+
+  .icon-btn:hover { background: var(--cream); border-color: var(--navy); color: var(--navy); }
+
+  /* ─── EMERGENCY BANNER ─── */
+  .emergency-banner {
+    display: none;
+    background: linear-gradient(135deg, #7f1d1d 0%, #991b1b 100%);
+    padding: 10px 24px;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .emergency-banner.active { display: flex; }
+  .emergency-banner-text { display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 500; color: #fecaca; }
+  .emergency-helplines { display: flex; gap: 8px; flex-wrap: wrap; }
+
+  .emergency-btn {
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.25);
+    color: white;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-decoration: none;
+    display: inline-block;
+  }
+
+  .emergency-btn:hover { background: rgba(255,255,255,0.25); }
+
+  /* ─── CHAT MESSAGES ─── */
+  .chat-messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    scroll-behavior: smooth;
+  }
+
+  .chat-messages::-webkit-scrollbar { width: 4px; }
+  .chat-messages::-webkit-scrollbar-track { background: transparent; }
+  .chat-messages::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+  /* ─── WELCOME SCREEN ─── */
+  .welcome-screen {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px;
+    min-height: 400px;
+  }
+
+  .welcome-icon { width: 64px; height: 64px; background: var(--navy); border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 28px; margin-bottom: 16px; }
+  .welcome-title { font-family: 'Playfair Display', serif; font-size: 22px; color: var(--navy); margin-bottom: 8px; }
+  .welcome-sub { font-size: 14px; color: var(--text-muted); max-width: 340px; line-height: 1.6; margin-bottom: 28px; }
+
+  .quick-prompts { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; max-width: 500px; width: 100%; }
+
+  .quick-prompt {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 12px 14px;
+    cursor: pointer;
+    text-align: left;
+    transition: all 0.2s;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .quick-prompt:hover { border-color: var(--navy); box-shadow: var(--shadow-sm); transform: translateY(-1px); }
+  .quick-prompt-icon { font-size: 18px; margin-bottom: 6px; display: block; }
+  .quick-prompt-text { font-size: 12px; font-weight: 500; color: var(--text-dark); }
+  .quick-prompt-sub { font-size: 11px; color: var(--text-muted); margin-top: 2px; }
+
+  /* ─── MESSAGE ROWS ─── */
+  .message-row { display: flex; gap: 10px; animation: fadeUp 0.3s ease; }
+  .message-row.user { flex-direction: row-reverse; }
+
+  .msg-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    flex-shrink: 0;
+  }
+
+  .user .msg-avatar { background: var(--navy); color: var(--gold); font-weight: 700; font-size: 12px; }
+  .ai .msg-avatar { background: var(--gold-pale); border: 1px solid rgba(201,168,76,0.3); }
+
+  .msg-content { flex: 1; min-width: 0; max-width: 85%; }
+  .user .msg-content { align-items: flex-end; display: flex; flex-direction: column; }
+
+  .user-bubble {
+    background: var(--navy);
+    color: white;
+    padding: 12px 16px;
+    border-radius: 16px 4px 16px 16px;
+    font-size: 14px;
+    line-height: 1.5;
+    max-width: 100%;
+  }
+
+  /* ─── AI RESPONSE CARD ─── */
+  .response-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .response-section { padding: 16px 20px; border-bottom: 1px solid rgba(15,27,53,0.06); }
+  .response-section:last-child { border-bottom: none; }
+
+  .section-header { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+  .section-icon { width: 26px; height: 26px; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 13px; flex-shrink: 0; }
+  .section-label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+  .section-body { font-size: 13.5px; line-height: 1.65; color: var(--text-mid); }
+  .section-body ul { padding-left: 16px; }
+  .section-body li { margin-bottom: 4px; }
+
+  .sec-situation .section-icon { background: #e8f4fd; }
+  .sec-situation .section-label { color: var(--blue-info); }
+  .sec-rights .section-icon { background: var(--purple-light); }
+  .sec-rights .section-label { color: var(--purple); }
+  .sec-law .section-icon { background: var(--gold-pale); }
+  .sec-law .section-label { color: #92650a; }
+  .sec-actions .section-icon { background: var(--green-light); }
+  .sec-actions .section-label { color: var(--green-action); }
+  .sec-disclaimer { background: var(--amber-light); border-top: 2px solid #fbbf24; }
+  .sec-disclaimer .section-icon { background: #fef3c7; }
+  .sec-disclaimer .section-label { color: var(--amber-warn); }
+  .sec-disclaimer .section-body { color: #92650a; font-size: 12.5px; }
+
+  /* ─── RESPONSE ACTIONS ─── */
+  .response-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 20px;
+    background: var(--cream);
+    border-top: 1px solid var(--border);
+    flex-wrap: wrap;
+  }
+
+  .resp-btn {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    color: var(--text-mid);
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .resp-btn:hover { background: var(--navy); color: white; border-color: var(--navy); }
+
+  /* ─── HELP PANEL ─── */
+  .help-panel {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    margin-top: 10px;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .help-panel-header { background: var(--navy); padding: 12px 20px; display: flex; align-items: center; gap: 8px; }
+  .help-panel-title { font-size: 12px; font-weight: 600; color: var(--gold); text-transform: uppercase; letter-spacing: 0.8px; }
+
+  .help-links-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--border); }
+
+  .help-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 16px;
+    background: var(--white);
+    text-decoration: none;
+    transition: all 0.2s;
+    cursor: pointer;
+  }
+
+  .help-link:hover { background: var(--cream); }
+  .help-link-icon { width: 34px; height: 34px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0; }
+  .help-link-info { flex: 1; min-width: 0; }
+  .help-link-name { font-size: 12px; font-weight: 600; color: var(--text-dark); }
+  .help-link-num { font-size: 11px; color: var(--text-muted); margin-top: 1px; }
+  .help-link-badge { font-size: 11px; font-weight: 700; padding: 3px 8px; border-radius: 6px; }
+  .badge-emergency { background: #fef2f2; color: var(--red-alert); }
+  .badge-helpline { background: var(--blue-light); color: var(--blue-info); }
+  .badge-portal { background: var(--teal-light); color: var(--teal); }
+  .badge-commission { background: var(--purple-light); color: var(--purple); }
+
+  /* ─── ACTION PANEL ─── */
+  .action-panel {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 16px 20px;
+    margin-top: 10px;
+  }
+
+  .action-panel-title { font-size: 11px; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 12px; }
+  .action-btns { display: flex; gap: 10px; flex-wrap: wrap; }
+
+  .action-btn {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding: 10px 18px;
+    border-radius: 10px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    border: none;
+    text-decoration: none;
+  }
+
+  .action-btn-complaint { background: var(--red-light); color: var(--red-alert); border: 1px solid rgba(220,38,38,0.2); }
+  .action-btn-complaint:hover { background: var(--red-alert); color: white; }
+  .action-btn-authority { background: var(--blue-light); color: var(--blue-info); border: 1px solid rgba(30,64,175,0.2); }
+  .action-btn-authority:hover { background: var(--blue-info); color: white; }
+  .action-btn-learn { background: var(--green-light); color: var(--green-action); border: 1px solid rgba(21,128,61,0.2); }
+  .action-btn-learn:hover { background: var(--green-action); color: white; }
+
+  /* ─── LOADING ─── */
+  .loading-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 24px 20px; box-shadow: var(--shadow-sm); }
+  .loading-dots { display: flex; align-items: center; gap: 8px; }
+  .loading-text { font-size: 13px; color: var(--text-muted); margin-left: 4px; }
+  .dot { width: 7px; height: 7px; background: var(--gold); border-radius: 50%; animation: bounce 1.2s infinite; }
+  .dot:nth-child(2) { animation-delay: 0.2s; }
+  .dot:nth-child(3) { animation-delay: 0.4s; }
+  .skeleton { background: #f0ede6; border-radius: 4px; margin-bottom: 8px; animation: shimmer 1.5s infinite; }
+  .sk-line { height: 10px; }
+  .sk-80 { width: 80%; }
+  .sk-60 { width: 60%; }
+  .sk-90 { width: 90%; }
+
+  /* ─── INPUT ─── */
+  .chat-input-area { background: var(--white); border-top: 1px solid var(--border); padding: 16px 24px; }
+
+  .input-wrapper {
+    display: flex;
+    gap: 10px;
+    align-items: flex-end;
+    background: var(--cream);
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 12px 14px;
+    transition: all 0.2s;
+  }
+
+  .input-wrapper:focus-within { border-color: var(--navy); box-shadow: 0 0 0 3px rgba(15,27,53,0.08); }
+
+  .chat-textarea {
+    flex: 1;
+    background: none;
+    border: none;
+    outline: none;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    color: var(--text-dark);
+    resize: none;
+    max-height: 120px;
+    min-height: 22px;
+    line-height: 1.5;
+    overflow-y: auto;
+  }
+
+  .chat-textarea::placeholder { color: var(--text-muted); }
+
+  .send-btn {
+    width: 36px;
+    height: 36px;
+    background: var(--navy);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    flex-shrink: 0;
+    color: var(--gold);
+    font-size: 16px;
+  }
+
+  .send-btn:hover { background: var(--navy-light); transform: scale(1.05); }
+  .send-btn:disabled { background: #c0bdb5; color: #a0a09a; cursor: not-allowed; transform: none; }
+  .input-hint { font-size: 11px; color: var(--text-muted); margin-top: 8px; text-align: center; }
+
+  /* ─── TOAST ─── */
+  .toast {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    background: var(--navy);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-size: 13px;
+    font-weight: 500;
+    opacity: 0;
+    transition: all 0.3s;
+    z-index: 1000;
+    pointer-events: none;
+  }
+
+  .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+  /* ─── ANIMATIONS ─── */
+  @keyframes fadeDown { from { opacity: 0; transform: translateY(-16px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes bounce { 0%, 80%, 100% { transform: translateY(0); } 40% { transform: translateY(-8px); } }
+  @keyframes shimmer { 0%, 100% { opacity: 0.5; } 50% { opacity: 1; } }
+  @keyframes pulse-gold { 0%, 100% { box-shadow: 0 4px 20px rgba(201,168,76,0.35); } 50% { box-shadow: 0 4px 32px rgba(201,168,76,0.6); } }
+  @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+
+  /* ─── MODAL ─── */
+  .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 999; align-items: center; justify-content: center; }
+  .modal-overlay.open { display: flex; }
+  .modal { background: var(--white); border-radius: var(--radius-xl); padding: 28px; max-width: 380px; width: 90%; box-shadow: var(--shadow-lg); animation: fadeDown 0.2s ease; }
+  .modal-title { font-family: 'Playfair Display', serif; font-size: 18px; color: var(--navy); margin-bottom: 8px; }
+  .modal-body { font-size: 14px; color: var(--text-mid); line-height: 1.6; margin-bottom: 20px; }
+  .modal-actions { display: flex; gap: 10px; justify-content: flex-end; }
+  .modal-cancel { background: var(--cream); border: 1px solid var(--border); color: var(--text-mid); padding: 9px 20px; border-radius: 8px; font-family: 'DM Sans', sans-serif; font-size: 13px; cursor: pointer; transition: all 0.2s; }
+  .modal-cancel:hover { background: var(--border); }
+  .modal-confirm { background: var(--navy); border: none; color: white; padding: 9px 20px; border-radius: 8px; font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 500; cursor: pointer; transition: all 0.2s; }
+  .modal-confirm:hover { background: var(--navy-light); }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 768px) {
+    .situation-cards { grid-template-columns: repeat(2, 1fr); }
+    .hero-stats { gap: 20px; }
+    .nav { padding: 16px 20px; }
+    .hero { padding: 40px 20px 30px; }
+    .situations-section { padding: 0 20px 40px; }
+    .sidebar { display: none; }
+    .chat-messages { padding: 16px; }
+    .chat-input-area { padding: 12px 16px; }
+    .help-links-grid { grid-template-columns: 1fr; }
+    .quick-prompts { grid-template-columns: 1fr; }
+    .action-btns { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+
+<!-- LANDING PAGE -->
+<div class="landing" id="landing">
+  <div class="landing-bg"></div>
+  <div class="landing-grid"></div>
+
+  <nav class="nav">
+    <a class="nav-logo" href="#">
+      <div class="nav-logo-icon">⚖️</div>
+      Know Your Rights
+    </a>
+    <span class="nav-badge">India · AI-Powered · Free</span>
+  </nav>
+
+  <div class="hero">
+    <div class="hero-badge">
+      <span style="width:6px;height:6px;background:var(--gold);border-radius:50%;animation:blink 1.5s infinite;display:inline-block;"></span>
+      AI Legal Awareness Platform
+    </div>
+    <h1 class="hero-title">Know Your<br><span>Rights.</span></h1>
+    <p class="hero-sub">Describe your situation in plain language. Get your rights, applicable laws, and clear action steps — instantly.</p>
+    <div class="hero-cta">
+      <button class="btn-primary" onclick="startChat()">⚖️ &nbsp;Start Chat</button>
+      <button class="btn-ghost" onclick="scrollToCards()">See Common Situations ↓</button>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><div class="stat-num">4+</div><div class="stat-label">Categories</div></div>
+      <div class="stat"><div class="stat-num">IPC</div><div class="stat-label">Indian Laws</div></div>
+      <div class="stat"><div class="stat-num">AI</div><div class="stat-label">Powered</div></div>
+      <div class="stat"><div class="stat-num">Free</div><div class="stat-label">Forever</div></div>
+    </div>
+  </div>
+
+  <div class="situations-section" id="situations-landing">
+    <div class="situations-title">Common Situations — Click to Start</div>
+    <div class="situation-cards">
+      <div class="situation-card" onclick="startChatWith('Police beat me without any reason and detained me illegally. What are my rights?')">
+        <span class="situation-card-icon">🚔</span>
+        <div class="situation-card-title">Police Issues</div>
+        <div class="situation-card-desc">Illegal detention, misconduct, arrest rights</div>
+      </div>
+      <div class="situation-card" onclick="startChatWith('My employer is harassing me at workplace and not paying my salary. What can I do?')">
+        <span class="situation-card-icon">💼</span>
+        <div class="situation-card-title">Workplace Issues</div>
+        <div class="situation-card-desc">Harassment, unpaid wages, wrongful termination</div>
+      </div>
+      <div class="situation-card" onclick="startChatWith('I am facing domestic violence and harassment at home. What legal protection do I have?')">
+        <span class="situation-card-icon">👩</span>
+        <div class="situation-card-title">Women Safety</div>
+        <div class="situation-card-desc">Domestic violence, harassment, protection orders</div>
+      </div>
+      <div class="situation-card" onclick="startChatWith('Someone is blackmailing me online and stealing my personal data. What should I do?')">
+        <span class="situation-card-icon">💻</span>
+        <div class="situation-card-title">Cyber Crime</div>
+        <div class="situation-card-desc">Online fraud, data theft, cyberbullying</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- APP -->
+<div class="app" id="app">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <div class="sidebar-logo">⚖️ Know Your Rights</div>
+      <button class="new-chat-btn" onclick="clearChat()">+ &nbsp;New Chat</button>
+    </div>
+    <div class="sidebar-section">Quick Categories</div>
+    <div class="sidebar-categories">
+      <div class="sidebar-cat" onclick="setInput('Police beat me without any reason and detained me illegally. What are my rights?')">
+        <div class="sidebar-cat-icon" style="background:rgba(220,38,38,0.1)">🚔</div>
+        <span class="sidebar-cat-text">Police Issues</span>
+      </div>
+      <div class="sidebar-cat" onclick="setInput('My employer is harassing me at workplace and not paying my salary. What can I do?')">
+        <div class="sidebar-cat-icon" style="background:rgba(30,64,175,0.1)">💼</div>
+        <span class="sidebar-cat-text">Workplace Issues</span>
+      </div>
+      <div class="sidebar-cat" onclick="setInput('I am facing domestic violence and harassment at home. What legal protection do I have?')">
+        <div class="sidebar-cat-icon" style="background:rgba(219,39,119,0.1)">👩</div>
+        <span class="sidebar-cat-text">Women Safety</span>
+      </div>
+      <div class="sidebar-cat" onclick="setInput('Someone is blackmailing me online and stealing my personal data. What should I do?')">
+        <div class="sidebar-cat-icon" style="background:rgba(15,118,110,0.1)">💻</div>
+        <span class="sidebar-cat-text">Cyber Crime</span>
+      </div>
+      <div class="sidebar-cat" onclick="setInput('My landlord is illegally evicting me without notice. What are my rights as a tenant?')">
+        <div class="sidebar-cat-icon" style="background:rgba(109,40,217,0.1)">🏠</div>
+        <span class="sidebar-cat-text">Housing Rights</span>
+      </div>
+      <div class="sidebar-cat" onclick="setInput('I was wrongfully arrested without an FIR. What legal options do I have?')">
+        <div class="sidebar-cat-icon" style="background:rgba(146,101,10,0.1)">⚖️</div>
+        <span class="sidebar-cat-text">Arrest & FIR</span>
+      </div>
+    </div>
+    <div class="sidebar-footer">
+      <div class="emergency-toggle" id="emergencyToggle" onclick="toggleEmergency()">
+        <div class="emergency-label">
+          <span style="font-size:14px">🚨</span>
+          This is Urgent
+        </div>
+        <div class="toggle-switch" id="toggleSwitch">
+          <div class="toggle-knob"></div>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main">
+    <div class="chat-header">
+      <div>
+        <div class="chat-title">Legal Awareness Assistant</div>
+        <div class="chat-subtitle">AI-powered · Indian Law · Not legal advice</div>
+      </div>
+      <div class="header-actions">
+        <button class="icon-btn" title="Clear Chat" onclick="confirmClear()">🗑️</button>
+        <button class="icon-btn" title="Back to Home" onclick="goHome()">🏠</button>
+      </div>
+    </div>
+
+    <div class="emergency-banner" id="emergencyBanner">
+      <div class="emergency-banner-text">🚨 &nbsp;Emergency Mode Active — Priority helplines below</div>
+      <div class="emergency-helplines">
+        <a class="emergency-btn" href="tel:100">📞 Police 100</a>
+        <a class="emergency-btn" href="tel:1091">📞 Women 1091</a>
+        <a class="emergency-btn" href="tel:1930">📞 Cyber 1930</a>
+        <a class="emergency-btn" href="tel:112">📞 Emergency 112</a>
+      </div>
+    </div>
+
+    <div class="chat-messages" id="chatMessages">
+      <div class="welcome-screen" id="welcomeScreen">
+        <div class="welcome-icon">⚖️</div>
+        <h2 class="welcome-title">Know Your Rights</h2>
+        <p class="welcome-sub">Describe your situation in your own words — police issues, workplace problems, cyber crime, or any civil matter.</p>
+        <div class="quick-prompts">
+          <button class="quick-prompt" onclick="setInput('Police detained me without reason for 3 days. Is this legal?')">
+            <span class="quick-prompt-icon">🚔</span>
+            <div class="quick-prompt-text">Illegal Detention</div>
+            <div class="quick-prompt-sub">Police misconduct</div>
+          </button>
+          <button class="quick-prompt" onclick="setInput('My boss is forcing me to work overtime without pay. What are my rights?')">
+            <span class="quick-prompt-icon">💼</span>
+            <div class="quick-prompt-text">Overtime & Wages</div>
+            <div class="quick-prompt-sub">Labour rights</div>
+          </button>
+          <button class="quick-prompt" onclick="setInput('I received a threat online and my photos are being misused. What should I do?')">
+            <span class="quick-prompt-icon">💻</span>
+            <div class="quick-prompt-text">Online Threat</div>
+            <div class="quick-prompt-sub">Cyber crime help</div>
+          </button>
+          <button class="quick-prompt" onclick="setInput('My husband is physically abusing me. What legal protection can I get?')">
+            <span class="quick-prompt-icon">🛡️</span>
+            <div class="quick-prompt-text">Domestic Violence</div>
+            <div class="quick-prompt-sub">Protection orders</div>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="chat-input-area">
+      <div class="input-wrapper">
+        <textarea class="chat-textarea" id="chatInput"
+          placeholder="Describe your situation... (e.g. 'Police detained me without FIR')"
+          rows="1"
+          onkeydown="handleKey(event)"
+          oninput="autoResize(this)"></textarea>
+        <button class="send-btn" id="sendBtn" onclick="sendMessage()">➤</button>
+      </div>
+      <div class="input-hint">Press Enter to send · Shift+Enter for new line · This is not legal advice</div>
+    </div>
+  </main>
+</div>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="clearModal">
+  <div class="modal">
+    <div class="modal-title">Clear Chat?</div>
+    <div class="modal-body">This will remove all messages. This action cannot be undone.</div>
+    <div class="modal-actions">
+      <button class="modal-cancel" onclick="closeModal()">Cancel</button>
+      <button class="modal-confirm" onclick="doClearChat()">Clear Chat</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+  // ═══════════════════════════════════════
+  // CONFIG — Change this to your backend URL
+  // ══════════════════════════════════════
+  const API_URL = 'http://localhost:3003/api/chat';
+
+  let isEmergency = false;
+  let isLoading = false;
+
+  // ─── NAVIGATION ───
+  function startChat() {
+    document.getElementById('landing').style.display = 'none';
+    document.getElementById('app').classList.add('active');
+  }
+
+  function startChatWith(msg) {
+    startChat();
+    setTimeout(() => { setInput(msg); sendMessage(); }, 150);
+  }
+
+  function goHome() {
+    document.getElementById('app').classList.remove('active');
+    document.getElementById('landing').style.display = 'flex';
+  }
+
+  function scrollToCards() {
+    document.getElementById('situations-landing').scrollIntoView({ behavior: 'smooth' });
+  }
+
+  // ─── EMERGENCY ───
+  function toggleEmergency() {
+    isEmergency = !isEmergency;
+    document.getElementById('toggleSwitch').classList.toggle('on', isEmergency);
+    document.getElementById('emergencyToggle').classList.toggle('active', isEmergency);
+    document.getElementById('emergencyBanner').classList.toggle('active', isEmergency);
+    showToast(isEmergency ? '🚨 Emergency mode ON' : '✓ Emergency mode off');
+  }
+
+  // ─── INPUT ───
+  function setInput(msg) {
+    const el = document.getElementById('chatInput');
+    el.value = msg;
+    el.focus();
+    autoResize(el);
+  }
+
+  function autoResize(el) {
+    el.style.height = 'auto';
+    el.style.height = Math.min(el.scrollHeight, 120) + 'px';
+  }
+
+  function handleKey(e) {
+    if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendMessage(); }
+  }
+
+  // ─── PARSE RESPONSE ───
+  function parseResponse(text) {
+    const s = { situation: '', rights: '', law: '', actions: '', disclaimer: '' };
+    const p = {
+      situation:  /Situation:\s*([\s\S]*?)(?=Rights:|Law:|Actions:|Disclaimer:|$)/i,
+      rights:     /Rights:\s*([\s\S]*?)(?=Law:|Actions:|Disclaimer:|$)/i,
+      law:        /Law:\s*([\s\S]*?)(?=Actions:|Disclaimer:|$)/i,
+      actions:    /Actions:\s*([\s\S]*?)(?=Disclaimer:|$)/i,
+      disclaimer: /Disclaimer:\s*([\s\S]*?)$/i
+    };
+    for (const [k, rx] of Object.entries(p)) {
+      const m = text.match(rx);
+      if (m) s[k] = m[1].trim();
+    }
+    if (!s.situation && !s.rights) s.situation = text.trim();
+    return s;
+  }
+
+  function formatActions(text) {
+    const lines = text.split('\n').filter(l => l.trim());
+    if (lines.length <= 1) return `<p>${text}</p>`;
+    return '<ul>' + lines.map(l => `<li>${l.replace(/^[-•*\d.]+\s*/, '')}</li>`).join('') + '</ul>';
+  }
+
+  // ─── SMART HELP LINKS ───
+  function getRelevantLinks(text) {
+    const t = text.toLowerCase();
+    const links = [{ icon: '🚔', name: 'Police Emergency', num: 'Dial 100', badge: 'badge-emergency', href: 'tel:100' }];
+    if (t.match(/wom|domestic|wife|mother|girl|sexual|harass/))
+      links.push({ icon: '👩', name: 'Women Helpline', num: 'Dial 1091', badge: 'badge-helpline', href: 'tel:1091' },
+                  { icon: '🛡️', name: 'NCW Complaint', num: 'ncwapps.nic.in', badge: 'badge-portal', href: 'https://ncwapps.nic.in' });
+    if (t.match(/cyber|online|internet|hack|fraud|blackmail/))
+      links.push({ icon: '💻', name: 'Cyber Crime Portal', num: 'cybercrime.gov.in', badge: 'badge-portal', href: 'https://cybercrime.gov.in' },
+                  { icon: '📞', name: 'Cyber Helpline', num: 'Dial 1930', badge: 'badge-helpline', href: 'tel:1930' });
+    if (t.match(/police|arrest|detain|fir|custody/))
+      links.push({ icon: '⚖️', name: 'Human Rights Comm.', num: 'nhrc.nic.in', badge: 'badge-commission', href: 'https://nhrc.nic.in' });
+    if (t.match(/work|employ|salary|labour|boss|wage/))
+      links.push({ icon: '💼', name: 'Labour Grievance', num: 'epfindia.gov.in', badge: 'badge-portal', href: 'https://www.epfindia.gov.in' });
+    if (!links.find(l => l.name === 'Human Rights Comm.'))
+      links.push({ icon: '⚖️', name: 'Human Rights Comm.', num: 'nhrc.nic.in', badge: 'badge-commission', href: 'https://nhrc.nic.in' });
+    return links.slice(0, 4);
+  }
+
+  function getActionLinks(text) {
+    const t = text.toLowerCase();
+    return [
+      { label: 'File Complaint', icon: '📝', cls: 'action-btn-complaint', href: t.includes('cyber') ? 'https://cybercrime.gov.in' : 'https://nhrc.nic.in/complaintregistration.aspx' },
+      { label: 'Contact Authority', icon: '📞', cls: 'action-btn-authority', href: 'https://districts.ecourts.gov.in' },
+      { label: 'Learn More', icon: '📖', cls: 'action-btn-learn', href: 'https://indiacode.nic.in' },
+    ];
+  }
+
+  // ─── RENDER RESPONSE ───
+  function renderResponseCard(parsed, rawText, container) {
+    const links = getRelevantLinks(rawText);
+    const actions = getActionLinks(rawText);
+    const sections = [
+      parsed.situation  && { cls: 'sec-situation', icon: '📋', label: 'Situation',        body: `<p>${parsed.situation}</p>` },
+      parsed.rights     && { cls: 'sec-rights',    icon: '⚖️', label: 'Your Rights',      body: `<p>${parsed.rights}</p>` },
+      parsed.law        && { cls: 'sec-law',        icon: '📜', label: 'Applicable Law',   body: `<p>${parsed.law}</p>` },
+      parsed.actions    && { cls: 'sec-actions',    icon: '✅', label: 'Actions to Take',  body: formatActions(parsed.actions) },
+      parsed.disclaimer && { cls: 'sec-disclaimer', icon: '⚠️', label: 'Disclaimer',       body: `<p>${parsed.disclaimer}</p>` },
+    ].filter(Boolean);
+
+    container.innerHTML = `
+      <div class="response-card">
+        ${sections.map(s => `
+          <div class="response-section ${s.cls}">
+            <div class="section-header">
+              <div class="section-icon">${s.icon}</div>
+              <span class="section-label">${s.label}</span>
+            </div>
+            <div class="section-body">${s.body}</div>
+          </div>`).join('')}
+        <div class="response-actions">
+          <button class="resp-btn" onclick='copyResponse(${JSON.stringify(rawText)})'>📋 Copy</button>
+          <button class="resp-btn" onclick="simplifyResponse(this)">✨ Explain Simply</button>
+        </div>
+      </div>
+
+      <div class="help-panel">
+        <div class="help-panel-header">
+          <span style="font-size:13px">🆘</span>
+          <span class="help-panel-title">Relevant Helplines & Resources</span>
+        </div>
+        <div class="help-links-grid">
+          ${links.map(l => `
+            <a class="help-link" href="${l.href}" target="_blank" rel="noopener">
+              <div class="help-link-icon" style="background:rgba(201,168,76,0.08)">${l.icon}</div>
+              <div class="help-link-info">
+                <div class="help-link-name">${l.name}</div>
+                <div class="help-link-num">${l.num}</div>
+              </div>
+              <span class="help-link-badge ${l.badge}">${l.num.startsWith('Dial') ? l.num.replace('Dial ','') : '↗'}</span>
+            </a>`).join('')}
+        </div>
+      </div>
+
+      <div class="action-panel">
+        <div class="action-panel-title">Take Action</div>
+        <div class="action-btns">
+          ${actions.map(a => `
+            <a class="action-btn ${a.cls}" href="${a.href}" target="_blank" rel="noopener">
+              <span>${a.icon}</span>${a.label}
+            </a>`).join('')}
+        </div>
+      </div>
+    `;
+  }
+
+  // ─── SEND MESSAGE ───
+  async function sendMessage() {
+    const input = document.getElementById('chatInput');
+    const msg = input.value.trim();
+    if (!msg || isLoading) return;
+
+    const welcome = document.getElementById('welcomeScreen');
+    if (welcome) welcome.remove();
+
+    isLoading = true;
+    document.getElementById('sendBtn').disabled = true;
+    input.value = '';
+    input.style.height = 'auto';
+
+    const container = document.getElementById('chatMessages');
+
+    // User message
+    container.insertAdjacentHTML('beforeend', `
+      <div class="message-row user">
+        <div class="msg-avatar">U</div>
+        <div class="msg-content">
+          <div class="user-bubble">${escapeHtml(msg)}</div>
+        </div>
+      </div>`);
+
+    // Loading skeleton
+    const loadId = 'load-' + Date.now();
+    container.insertAdjacentHTML('beforeend', `
+      <div class="message-row ai" id="${loadId}">
+        <div class="msg-avatar">⚖️</div>
+        <div class="msg-content" style="flex:1">
+          <div class="loading-card">
+            <div class="loading-dots">
+              <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+              <span class="loading-text">Analyzing your rights...</span>
+            </div>
+            <div style="margin-top:16px">
+              <div class="skeleton sk-line sk-90" style="margin-bottom:10px"></div>
+              <div class="skeleton sk-line sk-80"></div>
+              <div class="skeleton sk-line sk-60" style="margin-top:10px"></div>
+            </div>
+          </div>
+        </div>
+      </div>`);
+
+    scrollToBottom();
+
+    try {
+      const res = await fetch(API_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: msg })
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || 'Server error');
+      const reply = data.reply || '';
+      const parsed = parseResponse(reply);
+      const loadEl = document.getElementById(loadId);
+      renderResponseCard(parsed, reply, loadEl.querySelector('.msg-content'));
+    } catch (err) {
+      const loadEl = document.getElementById(loadId);
+      loadEl.querySelector('.msg-content').innerHTML = `
+        <div class="response-card">
+          <div class="response-section" style="background:var(--red-light)">
+            <div class="section-header">
+              <div class="section-icon">⚠️</div>
+              <span class="section-label" style="color:var(--red-alert)">Connection Error</span>
+            </div>
+            <div class="section-body">
+              <p>Could not reach the server. Make sure backend is running at <code>localhost:3003</code></p>
+              <p style="margin-top:8px;font-size:12px;color:var(--text-muted)">Error: ${escapeHtml(err.message)}</p>
+            </div>
+          </div>
+        </div>`;
+    }
+
+    isLoading = false;
+    document.getElementById('sendBtn').disabled = false;
+    scrollToBottom();
+  }
+
+  // ─── SIMPLIFY ───
+  async function simplifyResponse(btn) {
+    const card = btn.closest('.msg-content');
+    const situationEl = card.querySelector('.sec-situation .section-body');
+    const rightsEl    = card.querySelector('.sec-rights .section-body');
+    const bodyText = (situationEl?.textContent || '') + ' ' + (rightsEl?.textContent || '');
+    if (!bodyText.trim()) return;
+
+    btn.textContent = '⏳ Simplifying...';
+    btn.disabled = true;
+
+    try {
+      const res = await fetch(API_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: 'Explain this in very simple easy language for a common Indian citizen: ' + bodyText })
+      });
+      const data = await res.json();
+      const el = document.createElement('div');
+      el.style.cssText = 'margin-top:12px;padding:14px;background:var(--teal-light);border-radius:10px;border-left:3px solid var(--teal)';
+      el.innerHTML = `
+        <div style="font-size:11px;font-weight:600;color:var(--teal);text-transform:uppercase;letter-spacing:0.8px;margin-bottom:6px">✨ Simplified Explanation</div>
+        <div style="font-size:13px;line-height:1.6;color:var(--text-mid)">${escapeHtml(data.reply || 'Could not simplify.')}</div>`;
+      card.querySelector('.response-card').insertBefore(el, card.querySelector('.response-actions'));
+    } catch { showToast('❌ Could not simplify. Try again.'); }
+
+    btn.textContent = '✨ Explain Simply';
+    btn.disabled = false;
+  }
+
+  // ─── UTILS ───
+  function copyResponse(text) {
+    navigator.clipboard.writeText(text).then(() => showToast('📋 Copied to clipboard'));
+  }
+
+  function scrollToBottom() {
+    const el = document.getElementById('chatMessages');
+    setTimeout(() => el.scrollTop = el.scrollHeight, 50);
+  }
+
+  function escapeHtml(str) {
+    return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+
+  function showToast(msg) {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 2500);
+  }
+
+  function confirmClear() { document.getElementById('clearModal').classList.add('open'); }
+  function closeModal() { document.getElementById('clearModal').classList.remove('open'); }
+
+  function doClearChat() {
+    closeModal();
+    const c = document.getElementById('chatMessages');
+    c.innerHTML = `
+      <div class="welcome-screen" id="welcomeScreen">
+        <div class="welcome-icon">⚖️</div>
+        <h2 class="welcome-title">Know Your Rights</h2>
+        <p class="welcome-sub">Describe your situation in your own words.</p>
+        <div class="quick-prompts">
+          <button class="quick-prompt" onclick="setInput('Police detained me without reason. What are my rights?')">
+            <span class="quick-prompt-icon">🚔</span>
+            <div class="quick-prompt-text">Illegal Detention</div>
+            <div class="quick-prompt-sub">Police misconduct</div>
+          </button>
+          <button class="quick-prompt" onclick="setInput('I received threats online. What should I do?')">
+            <span class="quick-prompt-icon">💻</span>
+            <div class="quick-prompt-text">Online Threat</div>
+            <div class="quick-prompt-sub">Cyber crime help</div>
+          </button>
+        </div>
+      </div>`;
+    showToast('🗑️ Chat cleared');
+  }
+
+  function clearChat() { doClearChat(); }
+</script>
+</body>
+</html>
